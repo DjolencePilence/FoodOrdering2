@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="50dp"
+        android:layout_height="20dp"
+        android:layout_marginBottom="12dp"
+        android:layout_marginEnd="292dp"
+        android:layout_marginTop="8dp"
+        android:text="Ocena:"
+        android:textColor="@color/buttonColor"
+        app:layout_constraintBottom_toTopOf="@+id/textViewComment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewMark"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:text="9"
+        android:textColor="@color/buttonColor"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView21"
+        app:layout_constraintStart_toEndOf="@+id/textView21" />
+
+    <TextView
+        android:id="@+id/textViewPostedBy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="16dp"
+        android:layout_marginLeft="200dp"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="8dp"
+        android:text="MarkoNis"
+        android:textColor="@color/buttonColor"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textViewMark"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewComment"
+        android:layout_width="317dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="8dp"
+        android:text="Super hrana. Preglsana muzika, ali sasvim solidno mesto za opuštanje"
+        android:textColor="@color/darkBlueColor"
+        android:background="#FCF7A9"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView21" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="8dp"
+        app:barrierDirection="start"
+        app:layout_constraintStart_toEndOf="parent"
+        app:constraint_referenced_ids="textView24,textView21"
+        tools:layout_editor_absoluteX="360dp" />
+</android.support.constraint.ConstraintLayout>

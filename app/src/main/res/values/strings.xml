@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">FoodOrdering</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+    <string name="changeDataPromt">Da li želite da promenite podatke?</string>
+    <string name="restoran">Restoran</string>
+    <string name="title_activity_restaurant_details">RestaurantDetailsActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="reka_description">Super hrana! Najbolja teletina u gradu, pristojne cene i ugodna atmosfera. Brza i profesionalna dostava.</string>
+    <string name="deliveryTime">Vreme dostave:</string>
+    <string name="minimum">Minimum:</string>
+    <string name="deliveryUntil">Dostava do:</string>
+    <string name="price">Cena:</string>
+    <string name="quantity">Količina:</string>
+    <string name="ingredients">Sastojci:</string>
+</resources>
