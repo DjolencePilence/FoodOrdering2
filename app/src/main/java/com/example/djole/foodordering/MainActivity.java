@@ -1,5 +1,7 @@
 package com.example.djole.foodordering;
 
+import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -9,16 +11,19 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toolbar;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle myToggle;
+    private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        context = this;
 
         drawerLayout = findViewById(R.id.drawer);
         myToggle = new ActionBarDrawerToggle(this, drawerLayout,R.string.open, R.string.close);
@@ -33,22 +38,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
 /*
         @Override
-        public boolean onOptionsItemSelected (MenuItem item) {
-            // Handle item selection
-            switch (item.getItemId()) {
-                case R.id.homeScr:
-                    Intent myIntent = new Intent(MainActivity.this, LoginActivity.class);
-                    //myIntent.putExtra("key", value); //Optional parameters
-                    MainActivity.this.startActivity(myIntent);
-                    return true;
-                default:
-                    return super.onOptionsItemSelected(item);
-            }
-        }*/
-
-
-
-        @Override
         public boolean onOptionsItemSelected(MenuItem item) {
             if (myToggle.onOptionsItemSelected(item)) {
                 if(item.getItemId() == R.id.changeData) {
@@ -58,16 +47,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             }
             return super.onOptionsItemSelected(item);
-        }/*
-        if (item != null && item.getItemId() == android.R.id.home) {
-            if (drawerLayout.isDrawerOpen(Gravity.RIGHT)) {
-                drawerLayout.closeDrawer(Gravity.RIGHT);
-            }
-            else {
-                drawerLayout.openDrawer(Gravity.RIGHT);
-            }
-        }
-        return false;
         }*/
 
 
@@ -89,6 +68,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent myIntent = new Intent(MainActivity.this, ChangePasswordActivity.class);
                 MainActivity.this.startActivity(myIntent);
                 return true;
+            }
+            case R.id.basket : {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                final View dialogView = getLayoutInflater().inflate(R.layout.cart, null);
+
+                builder.setView(dialogView);
+                final AlertDialog alertDialog = builder.create();
+                alertDialog.show();
             }
         }
         return false;

@@ -19,4 +19,51 @@
     <string name="ingredients">Sastojci:</string>
     <string name="title_activity_all_restaurants_and_orderings">AllRestaurantsAndOrderingsActivity
     </string>
+    <string name="city_prompt">Izaberite grad</string>
+    <string name="cuisine_prompt">Izaberite kuhinju</string>
+
+
+    <string-array name="cities_array">
+        <item>Beograd</item>
+        <item>Novi Sad</item>
+        <item>Kragujevac</item>
+        <item>Niš</item>
+        <item>Subotica</item>
+        <item>Vranje</item>
+    </string-array>
+
+    <string-array name="cuisines_array">
+        <item>srpska</item>
+        <item>kineska</item>
+        <item>italijanska</item>
+        <item>francuska</item>
+        <item>americka</item>
+        <item>turska</item>
+    </string-array>
+
+    <string-array name="months_array">
+        <item>januar</item>
+        <item>fabruar</item>
+        <item>mart</item>
+        <item>april</item>
+        <item>maj</item>
+        <item>jun</item>
+        <item>jul</item>
+        <item>avgust</item>
+        <item>septembar</item>
+        <item>oktobar</item>
+        <item>novembar</item>
+        <item>decembar</item>
+    </string-array>
+
+    <string-array name="years_array">
+        <item>2018</item>
+        <item>2019</item>
+        <item>2020</item>
+        <item>2021</item>
+        <item>2022</item>
+        <item>2023</item>
+        <item>2024</item>
+        <item>2025</item>
+    </string-array>
 </resources>

@@ -19,6 +19,19 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView40" />
 
+    <ImageView
+        android:id="@+id/imageViewClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="2dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/textView40"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
     <TextView
         android:id="@+id/textView35"
         android:layout_width="wrap_content"
@@ -78,7 +91,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView40" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spinnerCity"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -89,10 +102,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.29"
         app:layout_constraintStart_toEndOf="@+id/barrier6"
-        app:layout_constraintTop_toBottomOf="@+id/editText2" />
+        app:layout_constraintTop_toBottomOf="@+id/editText2"
+        android:entries="@array/cities_array"
+        android:prompt="@string/city_prompt"/>
 
     <Spinner
-        android:id="@+id/spinner2"
+        android:id="@+id/spinnerCuisine"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -103,7 +118,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toEndOf="@+id/barrier6"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCity"
+        android:entries="@array/cuisines_array"
+        android:prompt="@string/cuisine_prompt"/>
 
     <android.support.constraint.Barrier
         android:id="@+id/barrier6"
@@ -115,20 +132,15 @@
         tools:layout_editor_absoluteY="59dp" />
 
     <SeekBar
-        android:id="@+id/seekBar2"
+        android:id="@+id/seekBarRating"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="103dp"
         android:layout_height="19dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:max="10"
-        android:progress="3"
+        android:max="11"
         android:min="1"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        android:progress="3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView37" />
 
@@ -137,18 +149,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:text="Vreme dostave:"
         android:textColor="@color/darkBlueColor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.813"
+        app:layout_constraintHorizontal_bias="0.69"
         app:layout_constraintStart_toEndOf="@+id/textView37"
         app:layout_constraintTop_toTopOf="@+id/textView37" />
 
     <SeekBar
-        android:id="@+id/seekBar3"
+        android:id="@+id/seekBarTime"
         style="@style/Widget.AppCompat.SeekBar.Discrete"
         android:layout_width="103dp"
         android:layout_height="wrap_content"
@@ -157,12 +167,12 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="16dp"
-        android:max="10"
-        android:progress="3"
-        android:min="1"
+        android:max="14"
+        android:progress="6"
+        android:min="2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.779"
-        app:layout_constraintStart_toEndOf="@+id/seekBar2"
+        app:layout_constraintStart_toEndOf="@+id/seekBarRating"
         app:layout_constraintTop_toBottomOf="@+id/textView38" />
 
     <TextView
@@ -177,7 +187,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seekBar2" />
+        app:layout_constraintTop_toBottomOf="@+id/seekBarRating" />
 
     <CheckBox
         android:id="@+id/checkBox"
@@ -243,5 +253,30 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="3"
+        android:textColor="@color/buttonColor"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView37"
+        app:layout_constraintEnd_toStartOf="@+id/textView38"
+        app:layout_constraintHorizontal_bias="0.096"
+        app:layout_constraintStart_toEndOf="@+id/textView37" />
+
+    <TextView
+        android:id="@+id/textViewTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:layout_marginStart="4dp"
+        android:text="30min"
+        android:textColor="@color/buttonColor"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView38"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView38" />
 
 </android.support.constraint.ConstraintLayout>
