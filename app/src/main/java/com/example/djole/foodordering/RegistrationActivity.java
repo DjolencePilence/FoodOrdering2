@@ -9,7 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class RegistrationActivity extends AppCompatActivity {
+public class RegistrationActivity extends BaseMenuActivity {
     private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,9 +54,4 @@ public class RegistrationActivity extends AppCompatActivity {
 
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return super.onCreateOptionsMenu(menu);
-    }
 }

@@ -24,7 +24,7 @@ import android.widget.ListView;
 
 import java.util.ArrayList;
 
-public class RestaurantDetailsActivity extends AppCompatActivity {
+public class RestaurantDetailsActivity extends BaseMenuActivity {
 
     private ViewPager viewPager;
 
@@ -32,6 +32,11 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_restaurant_details);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.inflateMenu(R.menu.drawer_menu);
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         viewPager = findViewById(R.id.container);
         setupViewPager(viewPager);
@@ -80,6 +85,8 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
             return mFragmentList.size();
         }
     }
+
+
 
 }
 
