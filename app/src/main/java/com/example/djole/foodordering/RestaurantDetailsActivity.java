@@ -81,7 +81,6 @@ public class RestaurantDetailsActivity extends AppCompatActivity {
         }
     }
 
-
 }
 
 

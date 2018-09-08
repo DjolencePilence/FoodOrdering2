@@ -9,8 +9,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
-
 /**
  * Created by Djole on 08-Sep-18.
  */
@@ -26,7 +24,7 @@ public class AllRestaurantsFragment extends Fragment {
         View view = inflater.inflate(R.layout.all_restaurants_tab,container, false);
         recyclerView = view.findViewById(R.id.restaurantsRecyclerView);
 
-        RecycleViewAdapter recycleViewAdapter = new RecycleViewAdapter(getContext());
+        RecycleViewAdapterRestaurants recycleViewAdapter = new RecycleViewAdapterRestaurants(getContext());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(recycleViewAdapter);

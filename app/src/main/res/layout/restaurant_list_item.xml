@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:id="@+id/restItemLayout">
 
     <ImageView
         android:id="@+id/imageViewRest"
@@ -121,18 +122,18 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView58" />
 
-    <Button
-        android:id="@+id/buttonRestaurantDetails"
-        android:layout_width="80dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginLeft="4dp"
-        android:layout_marginTop="4dp"
-        android:background="@android:color/darker_gray"
-        android:text="Detalji"
-        android:textColor="@android:color/white"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/barrier8"
-        app:layout_constraintTop_toBottomOf="@+id/textViewWorkingHours" />
+    <!--<Button-->
+        <!--android:id="@+id/buttonRestaurantDetails"-->
+        <!--android:layout_width="80dp"-->
+        <!--android:layout_height="30dp"-->
+        <!--android:layout_marginStart="4dp"-->
+        <!--android:layout_marginLeft="4dp"-->
+        <!--android:layout_marginTop="4dp"-->
+        <!--android:background="@android:color/darker_gray"-->
+        <!--android:text="Detalji"-->
+        <!--android:textColor="@android:color/white"-->
+        <!--app:layout_constraintRight_toRightOf="parent"-->
+        <!--app:layout_constraintStart_toEndOf="@+id/barrier8"-->
+        <!--app:layout_constraintTop_toBottomOf="@+id/textViewWorkingHours" />-->
 
 </android.support.constraint.ConstraintLayout>
