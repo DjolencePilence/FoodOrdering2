@@ -12,6 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.djole.foodordering.db.Database;
+
 public class LoginActivity extends AppCompatActivity {
     private Context context;
     @Override
@@ -40,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.LENGTH_LONG).show();
                 }
                 else {
+                    Database.getInstance().userRegistered = true;
                     Intent myIntent = new Intent(context, AllRestaurantsAndOrderingsActivity.class);
                     startActivity(myIntent);
                 }

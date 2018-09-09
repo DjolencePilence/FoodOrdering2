@@ -3,6 +3,7 @@ package com.example.djole.foodordering;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -90,6 +91,13 @@ public class RestaurantMenuFragment extends Fragment{
                 addToCartBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        if(!Database.getInstance().userRegistered){
+                            Intent myIntent = new Intent(getContext(), LoginActivity.class);
+                            startActivity(myIntent);
+                            Toast.makeText(getActivity(), "Morate se ulogovati prvo!",
+                                    Toast.LENGTH_LONG).show();
+                            return;
+                        }
                         CheckBox ketchup = dialogView.findViewById(R.id.checkBoxKetchup);
                         CheckBox sourCream = dialogView.findViewById(R.id.checkBoxPavlaka);
                         CheckBox mayonnaise = dialogView.findViewById(R.id.checkBoxMayonnaise);
