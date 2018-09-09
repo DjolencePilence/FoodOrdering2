@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.djole.foodordering.R;
 import com.example.djole.foodordering.beans.CartItem;
+import com.example.djole.foodordering.beans.Impression;
 import com.example.djole.foodordering.beans.OrderedItem;
 import com.example.djole.foodordering.beans.RestaurantBriefInfo;
 
@@ -19,6 +20,7 @@ public class Database {
     public static ArrayList<RestaurantBriefInfo> restBriefInfoList = new ArrayList<>();
     public static ArrayList<CartItem> cartList = new ArrayList<>();
     public static ArrayList<OrderedItem> ordersList = new ArrayList<>();
+    public static ArrayList<Impression> impressionsList = new ArrayList<>();
     public static int totalAmount = 0;
     public static Database getInstance(){
         if(myDb == null){
@@ -29,6 +31,7 @@ public class Database {
     private Database(){
         populateRestBriefInfo();
         populatePreviousOrders();
+        setHardCodedomments();
     }
 
 
@@ -42,6 +45,19 @@ public class Database {
         ordersList.add(orderedItem3);
         ordersList.add(orderedItem4);
 
+    }
+
+    private static void setHardCodedomments(){
+        String [] marks = {"9", "7", "5", "8"};
+        String []  putBy = {"MarkoNis", "Zika", "Miljan", "Paja"};
+        String [] comments = {"\nVrhunska hrana, odlična usluga, pristojne cene",
+                "\nUkusno, ali preskupo za standard u Srbiji",
+                "\nDlaka u supi dva puta nađena",
+                "\nOdlična lokacija, dugo se čeka"};
+        for(int i = 0; i < marks.length; i++) {
+            Impression impression = new Impression(marks[i], putBy[i], comments[i]);
+            impressionsList.add(impression);
+        }
     }
 
     private static void populateRestBriefInfo(){

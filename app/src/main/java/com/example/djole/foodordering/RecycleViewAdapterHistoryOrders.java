@@ -14,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.djole.foodordering.beans.CartItem;
+import com.example.djole.foodordering.beans.Impression;
 import com.example.djole.foodordering.beans.OrderedItem;
 import com.example.djole.foodordering.db.Database;
 
@@ -91,9 +92,8 @@ public class RecycleViewAdapterHistoryOrders extends RecyclerView.Adapter<Recycl
                         EditText comm = dialogView.findViewById(R.id.editText);
 
                         if(comm.getText().length()!=0) {
-//                            marksList.add(numPick.getValue() + "");
-//                            postedByList.add("Pera");
-//                            commentsList.add(comm.getText().toString());
+                            Impression impression = new Impression(numPick.getValue()+"", "Pera", comm.getText().toString());
+                            Database.getInstance().impressionsList.add(impression);
                             Toast.makeText(context, "Uspešno ste postavili komentar!",
                                     Toast.LENGTH_LONG).show();
                             alertDialog.dismiss();

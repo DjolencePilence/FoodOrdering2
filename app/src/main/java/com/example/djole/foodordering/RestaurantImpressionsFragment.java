@@ -22,6 +22,9 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.djole.foodordering.beans.Impression;
+import com.example.djole.foodordering.db.Database;
+
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -32,16 +35,7 @@ import java.util.ArrayList;
  */
 
 public class RestaurantImpressionsFragment extends Fragment {
-    private String [] marks = {"9", "7", "9", "5", "8"};
-    private String []  putBy = {"MarkoNis", "Pera", "Zika", "Miljan", "Paja"};
-    private String [] comments = {"\nVrhunska hrana, odlična usluga, pristojne cene",
-                                "\nUkusno, ali preskupo za standard u Srbiji",
-                                "\nSve pohvale!!!",
-                                "\nDlaka u supi dva puta nađena",
-                                "\nOdlična lokacija, dugo se čeka"};
-    private ArrayList<String> marksList = new ArrayList<>();
-    private ArrayList<String> commentsList = new ArrayList<>();
-    private ArrayList<String> postedByList = new ArrayList<>();
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -49,11 +43,9 @@ public class RestaurantImpressionsFragment extends Fragment {
 
         ListView listView = view.findViewById(R.id.listViewImpressionsTab);
         ViewCompat.setNestedScrollingEnabled(listView,true);
-        ImpressionsAdapter myAdapter = new ImpressionsAdapter(getActivity(),marksList, postedByList, commentsList);
+        ImpressionsAdapter myAdapter = new ImpressionsAdapter(getActivity());
         listView.setAdapter(myAdapter);
 
-        //Hardcoded comments
-        setHardCodedomments();
 
         //Creating a new comment dialog
         Button createCommentBtn = view.findViewById(R.id.buttonComment);
@@ -89,9 +81,8 @@ public class RestaurantImpressionsFragment extends Fragment {
                         EditText comm = dialogView.findViewById(R.id.editText);
 
                         if(comm.getText().length()!=0) {
-                            marksList.add(numPick.getValue() + "");
-                            postedByList.add("Pera");
-                            commentsList.add(comm.getText().toString());
+                            Impression impression = new Impression(numPick.getValue()+"", "Pera", comm.getText().toString());
+                            Database.getInstance().impressionsList.add(impression);
                             Toast.makeText(getActivity(), "Uspešno ste postavili komentar!",
                                     Toast.LENGTH_LONG).show();
                             alertDialog.dismiss();
@@ -104,36 +95,21 @@ public class RestaurantImpressionsFragment extends Fragment {
         return view;
     }
 
-    private void setHardCodedomments(){
-        for(String s: marks){
-            marksList.add(s);
-        }
-        for(String s: putBy){
-            postedByList.add(s);
-        }
-        for(String s: comments){
-            commentsList.add(s);
-        }
-    }
 
 }
 class ImpressionsAdapter extends ArrayAdapter<String> {
     private Context context;
-    private ArrayList<String> marksList;
-    private ArrayList<String> postedByList;
-    private ArrayList<String> commentsList;
+    private ArrayList<Impression> impressionsList = Database.getInstance().impressionsList;
 
-    public ImpressionsAdapter(@NonNull Context context, ArrayList<String> marks, ArrayList<String> putBy, ArrayList<String> comments) {
-        super(context, R.layout.restaurant_menu_list_item);
+    public ImpressionsAdapter(@NonNull Context context) {
+        super(context, R.layout.restaurant_impressions_list_item);
         this.context = context;
-        this.marksList = marks;
-        this.postedByList = putBy;
-        this.commentsList = comments;
+        impressionsList = Database.getInstance().impressionsList;
     }
 
     @Override
     public int getCount() {
-        return commentsList.size();
+        return Database.getInstance().impressionsList.size();
     }
 
     @NonNull
@@ -146,9 +122,9 @@ class ImpressionsAdapter extends ArrayAdapter<String> {
         TextView postedBy = row.findViewById(R.id.textViewPostedBy);
         TextView comment = row.findViewById(R.id.textViewComment);
 
-        mark.setText(marksList.get(position));
-        postedBy.setText(postedByList.get(position));
-        comment.setText(commentsList.get(position));
+        mark.setText(impressionsList.get(position).getMark());
+        postedBy.setText(impressionsList.get(position).getPostedBy());
+        comment.setText(impressionsList.get(position).getComment());
         return row;
     }
 }
