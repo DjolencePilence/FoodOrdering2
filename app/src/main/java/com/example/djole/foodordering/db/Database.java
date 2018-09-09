@@ -17,6 +17,7 @@ public class Database {
 
     public static ArrayList<RestaurantBriefInfo> restBriefInfoList = new ArrayList<>();
     public static ArrayList<CartItem> cartList = new ArrayList<>();
+    public static int totalAmount = 0;
     public static Database getInstance(){
         if(myDb == null){
             myDb = new Database();

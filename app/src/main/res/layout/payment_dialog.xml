@@ -97,7 +97,7 @@
         app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
     <EditText
-        android:id="@+id/editText3"
+        android:id="@+id/editTextCardNum"
         android:layout_width="268dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -106,8 +106,9 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:inputType="number"
+        android:text=""
+        android:hint="5555 6666 7777 8888"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.16"
         app:layout_constraintStart_toStartOf="parent"
@@ -128,7 +129,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText3" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextCardNum" />
 
     <TextView
         android:id="@+id/textView44"
@@ -147,7 +148,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView43" />
 
     <Spinner
-        android:id="@+id/spinner3"
+        android:id="@+id/spinnerMonth"
         android:layout_width="147dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -157,7 +158,9 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView44"
-        app:layout_constraintTop_toBottomOf="@+id/textView43" />
+        app:layout_constraintTop_toBottomOf="@+id/textView43"
+        android:entries="@array/months_array"
+        />
 
     <TextView
         android:id="@+id/textView45"
@@ -176,7 +179,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView44" />
 
     <Spinner
-        android:id="@+id/spinner4"
+        android:id="@+id/spinnerYear"
         android:layout_width="147dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -186,7 +189,9 @@
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView45"
-        app:layout_constraintTop_toBottomOf="@+id/spinner3" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerMonth"
+        android:entries="@array/years_array"
+        />
 
     <TextView
         android:id="@+id/textView46"
@@ -206,7 +211,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textView45" />
 
     <EditText
-        android:id="@+id/editText4"
+        android:id="@+id/editTextCVV"
         android:layout_width="56dp"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -215,15 +220,16 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
+        android:inputType="number"
+        android:text=""
+        android:hint="111"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textView46"
-        app:layout_constraintTop_toBottomOf="@+id/spinner4" />
+        app:layout_constraintTop_toBottomOf="@+id/spinnerYear" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/buttonSubmitOrder"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -231,12 +237,12 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:background="@color/darkBlueColor"
+        android:background="@color/buttonColor"
         android:text="Naručite"
         android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView48" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewTotalAmount" />
 
     <TextView
         android:id="@+id/textView47"
@@ -253,10 +259,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.06"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText4" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextCVV" />
 
     <TextView
-        android:id="@+id/textView48"
+        android:id="@+id/textViewTotalAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
