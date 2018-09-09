@@ -12,7 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class LoginActivity extends BaseMenuActivity {
+public class LoginActivity extends AppCompatActivity {
     private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,10 +47,10 @@ public class LoginActivity extends BaseMenuActivity {
         });
 
     }
-/*
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.drawer_menu, menu);
+        getMenuInflater().inflate(R.menu.unregistered_users_menu, menu);
         return true;
     }
 
@@ -58,27 +58,22 @@ public class LoginActivity extends BaseMenuActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
         switch (id) {
-            case R.id.changePassword :{
-                Intent myIntent = new Intent(this, ChangePasswordActivity.class);
-                startActivity(myIntent);
-                return true;
-            }
             case R.id.homeScr :{
-                Intent myIntent = new Intent(this, LoginActivity.class);
+                Intent myIntent = new Intent(this, AllRestUnregUserActivity.class);
                 startActivity(myIntent);
                 return true;
             }
-            case R.id.basket :{//ALERT DIALOG
-                Intent myIntent = new Intent(this, LoginActivity.class);
+            case R.id.registration :{
+                Intent myIntent = new Intent(this, RegistrationActivity.class);
                 startActivity(myIntent);
                 return true;
             }
-            case R.id.changeData :{
-                Intent myIntent = new Intent(this, ChangePersonalDataActivity.class);
+            case R.id.login : {
+                Intent myIntent = new Intent(this, LoginActivity.class);
                 startActivity(myIntent);
                 return true;
             }
         }
         return super.onOptionsItemSelected(item);
-    }*/
+    }
 }

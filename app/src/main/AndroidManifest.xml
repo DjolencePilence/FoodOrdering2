@@ -9,30 +9,33 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LoginActivity">
-
-        </activity>
+        <activity android:name=".LoginActivity" />
         <activity android:name=".RegistrationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
-        <activity android:name=".ChangePasswordActivity">
-
-        </activity>
-        <activity android:name=".ChangePersonalDataActivity">
-
-        </activity>
-        <activity android:name=".MainActivity">
-
-        </activity>
+        <activity android:name=".ChangePasswordActivity" />
+        <activity android:name=".ChangePersonalDataActivity" />
+        <activity android:name=".MainActivity" />
         <activity
             android:name=".RestaurantDetailsActivity"
             android:label="@string/title_activity_restaurant_details"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".AllRestaurantsAndOrderingsActivity"
             android:label="@string/title_activity_all_restaurants_and_orderings"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".AllRestUnregUserActivity"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

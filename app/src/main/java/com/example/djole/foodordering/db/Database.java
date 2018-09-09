@@ -21,6 +21,7 @@ public class Database {
     public static ArrayList<CartItem> cartList = new ArrayList<>();
     public static ArrayList<OrderedItem> ordersList = new ArrayList<>();
     public static ArrayList<Impression> impressionsList = new ArrayList<>();
+    public static boolean userRegistered = false;
     public static int totalAmount = 0;
     public static Database getInstance(){
         if(myDb == null){

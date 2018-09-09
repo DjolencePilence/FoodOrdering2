@@ -1,15 +1,17 @@
 package com.example.djole.foodordering;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-public class RegistrationActivity extends BaseMenuActivity {
+public class RegistrationActivity extends AppCompatActivity {
     private Context context;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +54,32 @@ public class RegistrationActivity extends BaseMenuActivity {
         });
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.unregistered_users_menu, menu);
+        return true;
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.homeScr :{
+                Intent myIntent = new Intent(this, AllRestUnregUserActivity.class);
+                startActivity(myIntent);
+                return true;
+            }
+            case R.id.registration :{
+                return true;
+            }
+            case R.id.login : {
+                Intent myIntent = new Intent(this, LoginActivity.class);
+                startActivity(myIntent);
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }
