@@ -3,6 +3,7 @@ package com.example.djole.foodordering.db;
 import android.util.Log;
 
 import com.example.djole.foodordering.R;
+import com.example.djole.foodordering.beans.CartItem;
 import com.example.djole.foodordering.beans.RestaurantBriefInfo;
 
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class Database {
     private static Database myDb;
 
     public static ArrayList<RestaurantBriefInfo> restBriefInfoList = new ArrayList<>();
+    public static ArrayList<CartItem> cartList = new ArrayList<>();
     public static Database getInstance(){
         if(myDb == null){
             myDb = new Database();
@@ -24,6 +26,9 @@ public class Database {
     private Database(){
         populateRestBriefInfo();
     }
+
+
+
     private static void populateRestBriefInfo(){
         RestaurantBriefInfo restInfo1 = new RestaurantBriefInfo("Bambara", "8.8","francuska", "12-23h", R.drawable.bambara);
         RestaurantBriefInfo restInfo2 = new RestaurantBriefInfo("Reka", "9.1","srpska","10-22h",R.drawable.reka);

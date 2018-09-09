@@ -18,11 +18,16 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.NumberPicker;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.example.djole.foodordering.ListAdapter;
+import com.example.djole.foodordering.beans.CartItem;
+import com.example.djole.foodordering.db.Database;
 
 import java.util.zip.Inflater;
 
@@ -48,7 +53,7 @@ public class RestaurantMenuFragment extends Fragment{
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+            public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
                 final View dialogView = getLayoutInflater().inflate(R.layout.restaurant_menu_add_to_cart, null);
                 builder.setView(dialogView);
@@ -61,15 +66,17 @@ public class RestaurantMenuFragment extends Fragment{
                 String price = priceView.getText().toString();
 */
                 //Setting up the min and max values for number picker
-                NumberPicker np = dialogView.findViewById(R.id.numberPicker);
+                final NumberPicker np = dialogView.findViewById(R.id.numberPicker);
                 np.setMaxValue(10);
                 np.setMinValue(1);
                 np.setValue(1);
 
                 //Filling the fields
                 TextView selectedItem = dialogView.findViewById(R.id.selectedItem);
+                final String titleString = titles[position];
                 selectedItem.setText(titles[position]);
                 TextView priceTextView = dialogView.findViewById(R.id.price);
+                final String priceString = prices[position];
                 priceTextView.setText(prices[position]);
                 TextView ingridientsTextView = dialogView.findViewById(R.id.ingredients);
                 ingridientsTextView.setText(ingridients[position]);
@@ -90,6 +97,20 @@ public class RestaurantMenuFragment extends Fragment{
                 addToCartBtn.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        CheckBox ketchup = dialogView.findViewById(R.id.checkBoxKetchup);
+                        CheckBox sourCream = dialogView.findViewById(R.id.checkBoxPavlaka);
+                        CheckBox mayonnaise = dialogView.findViewById(R.id.checkBoxMayonnaise);
+                        CheckBox cabbage = dialogView.findViewById(R.id.checkBoxKupus);
+                        StringBuilder sb = new StringBuilder();
+                        if (ketchup.isChecked()) sb.append("Kečap ");
+                        if (mayonnaise.isChecked()) sb.append("Majonez ");
+                        if (cabbage.isChecked()) sb.append("Kupus ");
+                        if(sourCream.isChecked()) sb.append("Pavlaka ");
+                        CartItem cartItem = new CartItem(titleString,priceString,np.getValue()+"",sb.toString());
+                        Database.getInstance().cartList.add(cartItem);
+                        alertDialog.dismiss();
+                        Toast.makeText(getActivity(), "Stavka dodata u korpu!",
+                                Toast.LENGTH_LONG).show();
 
                     }
                 });
