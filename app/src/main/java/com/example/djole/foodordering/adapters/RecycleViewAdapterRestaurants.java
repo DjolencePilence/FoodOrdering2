@@ -1,4 +1,4 @@
-package com.example.djole.foodordering;
+package com.example.djole.foodordering.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,6 +10,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.djole.foodordering.R;
+import com.example.djole.foodordering.RestaurantDetailsActivity;
 import com.example.djole.foodordering.beans.RestaurantBriefInfo;
 import com.example.djole.foodordering.db.Database;
 

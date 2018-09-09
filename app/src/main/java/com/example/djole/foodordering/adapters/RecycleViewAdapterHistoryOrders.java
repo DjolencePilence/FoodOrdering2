@@ -1,4 +1,4 @@
-package com.example.djole.foodordering;
+package com.example.djole.foodordering.adapters;
 
 import android.app.AlertDialog;
 import android.content.Context;
@@ -13,7 +13,8 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.djole.foodordering.beans.CartItem;
+import com.example.djole.foodordering.BaseMenuActivity;
+import com.example.djole.foodordering.R;
 import com.example.djole.foodordering.beans.Impression;
 import com.example.djole.foodordering.beans.OrderedItem;
 import com.example.djole.foodordering.db.Database;

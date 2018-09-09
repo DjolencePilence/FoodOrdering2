@@ -9,6 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.djole.foodordering.adapters.RecycleViewAdapterHistoryOrders;
+
 /**
  * Created by Djole on 08-Sep-18.
  */

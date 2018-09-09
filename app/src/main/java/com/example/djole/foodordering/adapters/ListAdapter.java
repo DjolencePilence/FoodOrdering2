@@ -1,4 +1,4 @@
-package com.example.djole.foodordering;
+package com.example.djole.foodordering.adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import com.example.djole.foodordering.R;
 
 /**
  * Created by Djole on 05-Sep-18.

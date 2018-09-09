@@ -60,6 +60,7 @@
         android:layout_marginTop="65dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:hint="Milan"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -89,6 +90,7 @@
         android:layout_marginTop="4dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:hint="Vidanović"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nameTxt" />
 
@@ -117,7 +119,8 @@
         android:layout_marginRight="32dp"
         android:layout_marginTop="4dp"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:inputType="number"
+        android:hint="0655215217"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/surnameTxt" />
 
@@ -147,6 +150,7 @@
         android:layout_marginTop="4dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:hint="Omladinskih brigada 15"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/phoneTxt" />
 
@@ -161,27 +165,9 @@
         android:textColor="@android:color/background_light"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.091"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addressTxt"
         app:layout_constraintVertical_bias="0.945" />
 
-    <Button
-        android:id="@+id/backBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginStart="164dp"
-
-        android:layout_marginTop="8dp"
-        android:background="@color/buttonColor"
-        android:text="Odustani"
-        android:textColor="@android:color/background_light"
-        android:textSize="16sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/submitBtn"
-        app:layout_constraintTop_toBottomOf="@+id/addressTxt"
-        app:layout_constraintVertical_bias="0.945" />
 </android.support.constraint.ConstraintLayout>

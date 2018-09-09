@@ -39,6 +39,10 @@ public class LoginActivity extends BaseMenuActivity {
                     Toast.makeText(context, "Pogresna lozinka!",
                             Toast.LENGTH_LONG).show();
                 }
+                else {
+                    Intent myIntent = new Intent(context, AllRestaurantsAndOrderingsActivity.class);
+                    startActivity(myIntent);
+                }
             }
         });
 
