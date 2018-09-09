@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.djole.foodordering.R;
 import com.example.djole.foodordering.beans.CartItem;
+import com.example.djole.foodordering.beans.OrderedItem;
 import com.example.djole.foodordering.beans.RestaurantBriefInfo;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ public class Database {
 
     public static ArrayList<RestaurantBriefInfo> restBriefInfoList = new ArrayList<>();
     public static ArrayList<CartItem> cartList = new ArrayList<>();
+    public static ArrayList<OrderedItem> ordersList = new ArrayList<>();
     public static int totalAmount = 0;
     public static Database getInstance(){
         if(myDb == null){
@@ -26,9 +28,21 @@ public class Database {
     }
     private Database(){
         populateRestBriefInfo();
+        populatePreviousOrders();
     }
 
 
+    private static void populatePreviousOrders(){
+        OrderedItem orderedItem1 = new OrderedItem("Pljeskavica", "230 RSD", "21:20 21.8.2014", "Milagro","2");
+        OrderedItem orderedItem2 = new OrderedItem("Piletina u sosu od smrčka", "330 RSD", "21:20 22.8.2014", "Reka","1");
+        OrderedItem orderedItem3 = new OrderedItem("Teletina ispod sača", "330 RSD", "21:00 22.1.2014", "Bambara","1");
+        OrderedItem orderedItem4 = new OrderedItem("Burger", "270 RSD", "21:00 22.1.2014", "Burger King","1");
+        ordersList.add(orderedItem1);
+        ordersList.add(orderedItem2);
+        ordersList.add(orderedItem3);
+        ordersList.add(orderedItem4);
+
+    }
 
     private static void populateRestBriefInfo(){
         RestaurantBriefInfo restInfo1 = new RestaurantBriefInfo("Bambara", "8.8","francuska", "12-23h", R.drawable.bambara);

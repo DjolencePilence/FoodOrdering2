@@ -7,7 +7,7 @@
         <menu>
             <item
                 android:id="@+id/homeScr"
-                android:title="Početna strana"
+                android:title="Restorani i porudžbine"
                 android:icon="@drawable/ic_home_black_24dp"
                 />
             <item

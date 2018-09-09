@@ -49,6 +49,7 @@ public class AllRestaurantsAndOrderingsActivity extends BaseMenuActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         //Adding the fragments
         mSectionsPagerAdapter.addFragment(new AllRestaurantsFragment(),"Restorani");
+        mSectionsPagerAdapter.addFragment(new AllOrdersFragment(),"Porudžbine");
 
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
