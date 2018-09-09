@@ -51,7 +51,7 @@
         android:layout_marginTop="8dp"
         android:text="Super hrana. Preglsana muzika, ali sasvim solidno mesto za opuštanje"
         android:textColor="@color/darkBlueColor"
-        android:background="#FCF7A9"
+        android:background="#edebeb"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.419"
         app:layout_constraintRight_toRightOf="parent"

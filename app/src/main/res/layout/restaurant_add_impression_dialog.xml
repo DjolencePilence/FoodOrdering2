@@ -20,10 +20,13 @@
 
     <NumberPicker
         android:id="@+id/numberPicker"
-        android:layout_width="70dp"
+        android:layout_width="wrap_content"
         android:layout_height="92dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView22" />
 
@@ -43,17 +46,19 @@
 
     <EditText
         android:id="@+id/editText"
-        android:layout_width="251dp"
+        android:layout_width="wrap_content"
         android:layout_height="96dp"
         android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+
         android:layout_marginTop="8dp"
         android:background="@drawable/edit_text_border"
         android:ems="10"
-
         android:hint="Unesite komentar ovde"
-        android:inputType="textPersonName"
+        android:inputType="textMultiLine"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView22"
         app:layout_constraintTop_toBottomOf="@+id/textView23" />
 
     <Button
@@ -80,6 +85,8 @@
         app:layout_constraintStart_toEndOf="@+id/textView23"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+
+
 
 
 </android.support.constraint.ConstraintLayout>
