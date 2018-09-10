@@ -66,4 +66,22 @@
         <item>2024</item>
         <item>2025</item>
     </string-array>
+
+    <string-array name="restaurants_array">
+        <item>Milagro</item>
+        <item>Bambara</item>
+        <item>Reka</item>
+        <item>Burger King</item>
+        <item>Galija</item>
+    </string-array>
+
+    <string-array name="distance_array">
+        <item>100m</item>
+        <item>200m</item>
+        <item>500m</item>
+        <item>1km</item>
+        <item>2km</item>
+        <item>5km</item>
+    </string-array>
+
 </resources>
