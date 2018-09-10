@@ -3,8 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/forDeliveryItemLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/imageViewRestLoc"
@@ -25,7 +26,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:text="Juneći biftek"
-        android:textColor="@color/darkBlueColor"
+        android:textColor="@color/buttonColor"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageViewRestLoc"
@@ -77,11 +78,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="end"
-        app:constraint_referenced_ids="textView53,textView54,textView58"
-         />
+        app:constraint_referenced_ids="textView53,textView54,textView58,textView63"
+        tools:layout_editor_absoluteX="265dp" />
 
     <TextView
-        android:id="@+id/textViewOrderer"
+        android:id="@+id/textViewPurchaser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -128,5 +129,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewRestLoc" />
+
+    <TextView
+        android:id="@+id/textView63"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Količina:"
+        android:textColor="@color/darkBlueColor"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.05"
+        app:layout_constraintStart_toEndOf="@+id/imageViewRestLoc"
+        app:layout_constraintTop_toBottomOf="@+id/textView58" />
+
+    <TextView
+        android:id="@+id/textViewQuantity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="4"
+        android:textColor="@android:color/black"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textView63"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/barrier8" />
 
 </android.support.constraint.ConstraintLayout>

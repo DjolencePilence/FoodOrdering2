@@ -14,7 +14,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="TextView"
+        android:text="Detalji porudžbine"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -200,7 +200,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:text="TextView"
+        android:text="Gotovina"
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView57"
         app:layout_constraintEnd_toEndOf="parent"
@@ -208,7 +208,7 @@
         app:layout_constraintStart_toEndOf="@+id/barrier10" />
 
     <TextView
-        android:id="@+id/textView66"
+        android:id="@+id/textViewDeadline"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -223,7 +223,7 @@
         app:layout_constraintStart_toEndOf="@+id/textView59" />
 
     <TextView
-        android:id="@+id/textView67"
+        android:id="@+id/textViewPurchaser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -245,7 +245,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:text="TextView"
+        android:text="Bambara"
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView61"
         app:layout_constraintEnd_toEndOf="parent"
@@ -260,7 +260,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:text="TextView"
+        android:text="Omladinska 15"
         android:textColor="@color/colorPrimaryDark"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView62"
         app:layout_constraintEnd_toEndOf="parent"
@@ -275,9 +275,9 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
+        android:background="@color/buttonColor"
         android:text="Isporuči"
         android:textColor="@android:color/white"
-        android:background="@color/buttonColor"
         app:layout_constraintBaseline_toBaselineOf="@+id/button5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
@@ -306,9 +306,9 @@
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="40dp"
+        android:background="@color/buttonColor"
         android:text="Neuspešna"
         android:textColor="@android:color/white"
-        android:background="@color/buttonColor"
         android:textSize="14sp"
         app:layout_constraintEnd_toStartOf="@+id/button4"
         app:layout_constraintHorizontal_bias="0.048"
@@ -316,44 +316,49 @@
         app:layout_constraintTop_toBottomOf="@+id/textView62" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/buttonPurchaser"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:text="Detalji"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView67"
+        android:textColor="@android:color/white"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewPurchaser"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintStart_toEndOf="@+id/textView67" />
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toEndOf="@+id/barrier11" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/buttonRestaurant"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:text="Detalji"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintStart_toEndOf="@+id/textView68"
-        app:layout_constraintTop_toBottomOf="@+id/button3" />
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toEndOf="@+id/barrier11"
+        app:layout_constraintTop_toBottomOf="@+id/buttonPurchaser" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/buttonMap"
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
         android:text="Mapa"
+        android:textColor="@android:color/white"
         app:layout_constraintBaseline_toBaselineOf="@+id/textView69"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.8"
-        app:layout_constraintStart_toEndOf="@+id/textView69" />
+        app:layout_constraintHorizontal_bias="0.9"
+        app:layout_constraintStart_toEndOf="@+id/barrier11" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="textView69,textView68,textViewPurchaser"
+        tools:layout_editor_absoluteX="384dp" />
 </android.support.constraint.ConstraintLayout>

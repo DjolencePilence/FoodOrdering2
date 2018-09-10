@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.example.djole.foodordering.R;
 import com.example.djole.foodordering.beans.CartItem;
+import com.example.djole.foodordering.beans.ForDeliveryItem;
 import com.example.djole.foodordering.beans.Impression;
 import com.example.djole.foodordering.beans.OrderedItem;
 import com.example.djole.foodordering.beans.RestaurantBriefInfo;
@@ -21,6 +22,7 @@ public class Database {
     public static ArrayList<CartItem> cartList = new ArrayList<>();
     public static ArrayList<OrderedItem> ordersList = new ArrayList<>();
     public static ArrayList<Impression> impressionsList = new ArrayList<>();
+    public static ArrayList<ForDeliveryItem> forDeliveryList = new ArrayList<>();
     public static boolean userRegistered = false;
     public static int totalAmount = 0;
     public static Database getInstance(){
@@ -33,6 +35,22 @@ public class Database {
         populateRestBriefInfo();
         populatePreviousOrders();
         setHardCodedomments();
+        populateForDeliveryList();
+    }
+
+
+    private static void populateForDeliveryList(){
+        ForDeliveryItem fdi1 = new ForDeliveryItem("Krilca","350.00 RSD", "Milan Marić", "16:35", R.drawable.reka_mapa,"2");
+        ForDeliveryItem fdi2 = new ForDeliveryItem("Biftek","700.00 RSD", "Pera Perić", "17:50", R.drawable.omladinskih,"1");
+        ForDeliveryItem fdi3 = new ForDeliveryItem("Palačinka","250", "Ivan Kotur", "22:00",R.drawable.patrisa,"1");
+        ForDeliveryItem fdi4 = new ForDeliveryItem("Gurmanska pljeskavica","400.00 RSD", "Milan Marić", "19:35",R.drawable.reka_mapa,"2");
+        ForDeliveryItem fdi5 = new ForDeliveryItem("Tulumbe","350.00 RSD", "Goran Gavrin", "12:00", R.drawable.omladinskih,"3");
+
+        forDeliveryList.add(fdi1);
+        forDeliveryList.add(fdi2);
+        forDeliveryList.add(fdi3);
+        forDeliveryList.add(fdi4);
+        forDeliveryList.add(fdi5);
     }
 
 
