@@ -8,7 +8,7 @@
         app:showAsAction="always" >
         <menu>
             <item
-                android:id="@+id/homeScr"
+                android:id="@+id/home_delivery"
                 android:title="Porudžbine"
                 android:icon="@drawable/delivery_home_24dp"
                 />

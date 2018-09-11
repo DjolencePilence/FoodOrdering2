@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.example.djole.foodordering.adapters.RecycleViewAdapterOrders;
 import com.example.djole.foodordering.beans.CartItem;
 import com.example.djole.foodordering.db.Database;
+import com.example.djole.foodordering.delivery.ForDeliveryAndAllOrdersActivity;
 
 /**
  * Created by Djole on 08-Sep-18.
@@ -51,6 +52,11 @@ public class BaseMenuActivity extends AppCompatActivity {
             }
             case R.id.homeScr :{
                 Intent myIntent = new Intent(this, AllRestaurantsAndOrderingsActivity.class);
+                startActivity(myIntent);
+                return true;
+            }
+            case R.id.home_delivery :{
+                Intent myIntent = new Intent(this, ForDeliveryAndAllOrdersActivity.class);
                 startActivity(myIntent);
                 return true;
             }

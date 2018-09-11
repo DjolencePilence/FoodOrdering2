@@ -56,7 +56,7 @@ public class ForDeliveryFragment extends Fragment {
                     @Override
                     public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
                         TextView textViewTimeFrom = alertDialog.findViewById(R.id.textViewTimeFrom);
-                        textViewTimeFrom.setText(i*5 +"");
+                        textViewTimeFrom.setText(i*5 +"min");
                     }
                     @Override
                     public void onStartTrackingTouch(SeekBar seekBar) {}

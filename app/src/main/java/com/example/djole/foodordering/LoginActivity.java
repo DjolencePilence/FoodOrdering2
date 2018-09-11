@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.djole.foodordering.db.Database;
+import com.example.djole.foodordering.delivery.ForDeliveryAndAllOrdersActivity;
 
 public class LoginActivity extends AppCompatActivity {
     private Context context;
@@ -33,7 +34,7 @@ public class LoginActivity extends AppCompatActivity {
                 if(username.length() == 0 || password.length() == 0){
                     Toast.makeText(context, "Niste uneli sve podatke!",
                             Toast.LENGTH_LONG).show();
-                }else if(!"milan93".equals(username)) {
+                }else if(!"milan93".equals(username) && !"delivery".equals(username)) {
                     Toast.makeText(context, "Pogresno korisnicko ime!",
                             Toast.LENGTH_LONG).show();
                 }
@@ -43,7 +44,15 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 else {
                     Database.getInstance().userRegistered = true;
-                    Intent myIntent = new Intent(context, AllRestaurantsAndOrderingsActivity.class);
+                    if("delivery".equals(username)) Database.getInstance().userType = 1;
+                    if("milan93".equals(username)) Database.getInstance().userType = 0;
+                    Intent myIntent;
+                    if(Database.getInstance().userType == 0) {
+                        myIntent = new Intent(context, AllRestaurantsAndOrderingsActivity.class);
+                    }
+                    else{
+                        myIntent = new Intent(context, ForDeliveryAndAllOrdersActivity.class);
+                    }
                     startActivity(myIntent);
                 }
             }

@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import com.example.djole.foodordering.AllOrdersFragment;
 import com.example.djole.foodordering.AllRestaurantsAndOrderingsActivity;
 import com.example.djole.foodordering.AllRestaurantsFragment;
+import com.example.djole.foodordering.BaseMenuActivity;
 import com.example.djole.foodordering.ChangePasswordActivity;
 import com.example.djole.foodordering.ChangePersonalDataActivity;
 import com.example.djole.foodordering.LoginActivity;
@@ -22,7 +23,7 @@ import com.example.djole.foodordering.R;
 
 import java.util.ArrayList;
 
-public class ForDeliveryAndAllOrdersActivity extends AppCompatActivity {
+public class ForDeliveryAndAllOrdersActivity extends BaseMenuActivity {
 
     private ForDeliveryAndAllOrdersActivity.ViewPagerAdapter mSectionsPagerAdapter;
 
@@ -92,37 +93,5 @@ public class ForDeliveryAndAllOrdersActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.delivery_menu, menu);
-        return true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        switch (id) {
-            case R.id.changePassword :{
-                Intent myIntent = new Intent(this, ChangePasswordActivity.class);
-                startActivity(myIntent);
-                return true;
-            }
-            case R.id.homeScr :{
-                Intent myIntent = new Intent(this, ForDeliveryAndAllOrdersActivity.class);
-                startActivity(myIntent);
-                return true;
-            }
-            case R.id.changeData :{
-                Intent myIntent = new Intent(this, ChangePersonalDataActivity.class);
-                startActivity(myIntent);
-                return true;
-            }
-            case R.id.logout : {
-                Intent myIntent = new Intent(this, LoginActivity.class);
-                startActivity(myIntent);
-                return true;
-            }
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }
