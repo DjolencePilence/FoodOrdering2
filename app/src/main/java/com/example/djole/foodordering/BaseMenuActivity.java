@@ -31,7 +31,12 @@ public class BaseMenuActivity extends AppCompatActivity {
     private View dialogViewPayment;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.drawer_menu, menu);
+        if(Database.getInstance().userType == 0) {
+            getMenuInflater().inflate(R.menu.drawer_menu, menu);
+        }
+        else{
+            getMenuInflater().inflate(R.menu.delivery_menu, menu);
+        }
         return true;
     }
 

@@ -7,6 +7,7 @@ import com.example.djole.foodordering.beans.CartItem;
 import com.example.djole.foodordering.beans.ForDeliveryItem;
 import com.example.djole.foodordering.beans.Impression;
 import com.example.djole.foodordering.beans.OrderedItem;
+import com.example.djole.foodordering.beans.PreviousDeliveryItem;
 import com.example.djole.foodordering.beans.RestaurantBriefInfo;
 
 import java.util.ArrayList;
@@ -23,7 +24,9 @@ public class Database {
     public static ArrayList<OrderedItem> ordersList = new ArrayList<>();
     public static ArrayList<Impression> impressionsList = new ArrayList<>();
     public static ArrayList<ForDeliveryItem> forDeliveryList = new ArrayList<>();
+    public static ArrayList<PreviousDeliveryItem> previousDeliveryList = new ArrayList<>();
     public static boolean userRegistered = false;
+    public static int userType = 0; //user = 0 purchasers, user = 1 delivery guys;
     public static int totalAmount = 0;
     public static Database getInstance(){
         if(myDb == null){
@@ -36,8 +39,18 @@ public class Database {
         populatePreviousOrders();
         setHardCodedomments();
         populateForDeliveryList();
+        populatePreviousDeliveryList();
     }
 
+    private static void populatePreviousDeliveryList(){
+        PreviousDeliveryItem previousDeliveryItem1 = new PreviousDeliveryItem("Ćevapi","320.00 RSD","21:30 21.4.2016.","Mika Galić","Batutova 17, Zemun",  R.drawable.check_24dp);
+        PreviousDeliveryItem previousDeliveryItem2 = new PreviousDeliveryItem("Kobasica sa kačkavaljem","550.00 RSD","21:30 1.2.2016.","Zoran Pantović","Tri tiganja, Kaluđerica",  R.drawable.check_24dp);
+        PreviousDeliveryItem previousDeliveryItem3 = new PreviousDeliveryItem("Palačinka","250.00 RSD","21:30 17.1.2016.","Zoran Pantović","Tri tiganja, Kaluđerica",  R.drawable.close_24dp);
+
+        previousDeliveryList.add(previousDeliveryItem1);
+        previousDeliveryList.add(previousDeliveryItem2);
+        previousDeliveryList.add(previousDeliveryItem3);
+    }
 
     private static void populateForDeliveryList(){
         ForDeliveryItem fdi1 = new ForDeliveryItem("Krilca","350.00 RSD", "Milan Marić", "16:35", R.drawable.reka_mapa,"2");

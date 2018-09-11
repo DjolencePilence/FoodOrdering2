@@ -21,6 +21,7 @@
     </string>
     <string name="city_prompt">Izaberite grad</string>
     <string name="cuisine_prompt">Izaberite kuhinju</string>
+    <string name="changeDeliveryStatusPrompt">Da li želite da promenite status?</string>
 
 
     <string-array name="cities_array">
@@ -68,6 +69,7 @@
     </string-array>
 
     <string-array name="restaurants_array">
+        <item>Svi</item>
         <item>Milagro</item>
         <item>Bambara</item>
         <item>Reka</item>

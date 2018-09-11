@@ -1,5 +1,6 @@
 package com.example.djole.foodordering.delivery;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -8,10 +9,15 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.example.djole.foodordering.AllOrdersFragment;
 import com.example.djole.foodordering.AllRestaurantsAndOrderingsActivity;
 import com.example.djole.foodordering.AllRestaurantsFragment;
+import com.example.djole.foodordering.ChangePasswordActivity;
+import com.example.djole.foodordering.ChangePersonalDataActivity;
+import com.example.djole.foodordering.LoginActivity;
 import com.example.djole.foodordering.R;
 
 import java.util.ArrayList;
@@ -44,6 +50,7 @@ public class ForDeliveryAndAllOrdersActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.container);
         //Adding the fragments
         mSectionsPagerAdapter.addFragment(new ForDeliveryFragment(),"Za isporuku");
+        mSectionsPagerAdapter.addFragment(new PreviousDeliveriesFragment(),"Prethodne isporuke");
 
         mViewPager.setAdapter(mSectionsPagerAdapter);
 
@@ -83,5 +90,39 @@ public class ForDeliveryAndAllOrdersActivity extends AppCompatActivity {
         public int getCount() {
             return fragments.size();
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.delivery_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.changePassword :{
+                Intent myIntent = new Intent(this, ChangePasswordActivity.class);
+                startActivity(myIntent);
+                return true;
+            }
+            case R.id.homeScr :{
+                Intent myIntent = new Intent(this, ForDeliveryAndAllOrdersActivity.class);
+                startActivity(myIntent);
+                return true;
+            }
+            case R.id.changeData :{
+                Intent myIntent = new Intent(this, ChangePersonalDataActivity.class);
+                startActivity(myIntent);
+                return true;
+            }
+            case R.id.logout : {
+                Intent myIntent = new Intent(this, LoginActivity.class);
+                startActivity(myIntent);
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
