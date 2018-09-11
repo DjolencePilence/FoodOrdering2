@@ -33,7 +33,7 @@ public class ForDeliveryFragment extends Fragment {
         View view = inflater.inflate(R.layout.for_delivery_tab,container, false);
         recyclerView = view.findViewById(R.id.recycleViewForDelivery);
 
-        RecViewAdapterForDelivery recycleViewAdapter = new RecViewAdapterForDelivery(getContext());
+        RecViewAdapterForDelivery recycleViewAdapter = new RecViewAdapterForDelivery(getContext(), recyclerView);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(recycleViewAdapter);

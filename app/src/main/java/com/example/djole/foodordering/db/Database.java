@@ -3,6 +3,7 @@ package com.example.djole.foodordering.db;
 import android.util.Log;
 
 import com.example.djole.foodordering.R;
+import com.example.djole.foodordering.adapters.RecViewAdapterPreviousDeliveries;
 import com.example.djole.foodordering.beans.CartItem;
 import com.example.djole.foodordering.beans.ForDeliveryItem;
 import com.example.djole.foodordering.beans.Impression;
@@ -28,6 +29,8 @@ public class Database {
     public static boolean userRegistered = false;
     public static int userType = 0; //user = 0 purchasers, user = 1 delivery guys;
     public static int totalAmount = 0;
+
+    public static RecViewAdapterPreviousDeliveries previousDeliveriesAdapter;
     public static Database getInstance(){
         if(myDb == null){
             myDb = new Database();

@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 import com.example.djole.foodordering.R;
 import com.example.djole.foodordering.adapters.RecViewAdapterPreviousDeliveries;
+import com.example.djole.foodordering.db.Database;
 
 /**
  * Created by Djole on 11-Sep-18.
@@ -28,6 +29,7 @@ public class PreviousDeliveriesFragment extends Fragment {
         recyclerView = view.findViewById(R.id.previousDeliveryRecyclerView);
 
         RecViewAdapterPreviousDeliveries recycleViewAdapter = new RecViewAdapterPreviousDeliveries(getContext());
+        Database.getInstance().previousDeliveriesAdapter = recycleViewAdapter;
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(recycleViewAdapter);

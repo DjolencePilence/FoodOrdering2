@@ -253,7 +253,7 @@
         app:layout_constraintStart_toEndOf="@+id/barrier10" />
 
     <TextView
-        android:id="@+id/textView69"
+        android:id="@+id/textViewAddress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -268,7 +268,7 @@
         app:layout_constraintStart_toEndOf="@+id/barrier10" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/buttonSucceeded"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
@@ -278,7 +278,7 @@
         android:background="@color/buttonColor"
         android:text="Isporuči"
         android:textColor="@android:color/white"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button5"
+        app:layout_constraintBaseline_toBaselineOf="@+id/buttonFailed"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toEndOf="@+id/barrier10" />
@@ -298,7 +298,7 @@
 
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/buttonFailed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -310,7 +310,7 @@
         android:textColor="@android:color/white"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/button4"
+        app:layout_constraintEnd_toStartOf="@+id/buttonSucceeded"
         app:layout_constraintHorizontal_bias="0.048"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView62"
@@ -350,7 +350,7 @@
         android:layout_marginStart="8dp"
         android:text="Mapa"
         android:textColor="@android:color/white"
-        app:layout_constraintBaseline_toBaselineOf="@+id/textView69"
+        app:layout_constraintBaseline_toBaselineOf="@+id/textViewAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.9"
         app:layout_constraintStart_toEndOf="@+id/barrier11" />
@@ -360,6 +360,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:barrierDirection="end"
-        app:constraint_referenced_ids="textView69,textView68,textViewPurchaser"
+        app:constraint_referenced_ids="textViewAddress,textView68,textViewPurchaser"
         tools:layout_editor_absoluteX="384dp" />
 </android.support.constraint.ConstraintLayout>
