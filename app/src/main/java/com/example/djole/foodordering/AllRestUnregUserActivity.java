@@ -12,6 +12,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.example.djole.foodordering.db.Database;
+
 import java.util.ArrayList;
 
 public class AllRestUnregUserActivity extends AppCompatActivity {
@@ -89,22 +91,27 @@ public class AllRestUnregUserActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        switch (id) {
-            case R.id.homeScr :{
-                Intent myIntent = new Intent(this, AllRestUnregUserActivity.class);
-                startActivity(myIntent);
-                return true;
+        if(!Database.getInstance().userRegistered) {
+            switch (id) {
+                case R.id.homeScr: {
+                    Intent myIntent = new Intent(this, AllRestUnregUserActivity.class);
+                    startActivity(myIntent);
+                    return true;
+                }
+                case R.id.registration: {
+                    Intent myIntent = new Intent(this, RegistrationActivity.class);
+                    startActivity(myIntent);
+                    return true;
+                }
+                case R.id.login: {
+                    Intent myIntent = new Intent(this, LoginActivity.class);
+                    startActivity(myIntent);
+                    return true;
+                }
             }
-            case R.id.registration :{
-                Intent myIntent = new Intent(this, RegistrationActivity.class);
-                startActivity(myIntent);
-                return true;
-            }
-            case R.id.login : {
-                Intent myIntent = new Intent(this, LoginActivity.class);
-                startActivity(myIntent);
-                return true;
-            }
+        }
+        else{
+            super.onOptionsItemSelected(item);
         }
         return super.onOptionsItemSelected(item);
     }

@@ -70,6 +70,7 @@ public class BaseMenuActivity extends AppCompatActivity {
                 return true;
             }
             case R.id.logout : {
+                Database.getInstance().userRegistered = false;
                 Intent myIntent = new Intent(this, LoginActivity.class);
                 startActivity(myIntent);
                 return true;

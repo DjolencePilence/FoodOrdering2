@@ -1,6 +1,7 @@
 package com.example.djole.foodordering;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
@@ -15,12 +16,16 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 
+
+import com.example.djole.foodordering.db.Database;
 
 import java.util.ArrayList;
 
@@ -47,6 +52,39 @@ public class RestaurantDetailsActivity extends BaseMenuActivity {
 
 
     }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        if(Database.getInstance().userRegistered) {
+            getMenuInflater().inflate(R.menu.drawer_menu, menu);
+        }
+        else{
+            getMenuInflater().inflate(R.menu.unregistered_users_menu, menu);
+        }
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.homeScr :{
+                Intent myIntent = new Intent(this, AllRestUnregUserActivity.class);
+                startActivity(myIntent);
+                return true;
+            }
+            case R.id.registration :{
+                Intent myIntent = new Intent(this, RegistrationActivity.class);
+                startActivity(myIntent);
+                return true;
+            }
+            case R.id.login : {
+                Intent myIntent = new Intent(this, LoginActivity.class);
+                startActivity(myIntent);
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
 
     private void setupViewPager(ViewPager viewPager){
         SectionPageAdapter sectionPageAdapter = new SectionPageAdapter(getSupportFragmentManager());
