@@ -110,6 +110,26 @@ public class ForDeliveryFragment extends Fragment {
                 });
             }
         });
+        Button mapBtn = view.findViewById(R.id.buttonMap);
+        mapBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
+                final View dialogViewMap = getLayoutInflater().inflate(R.layout.map_dialog, null);
+                builder.setView(dialogViewMap);
+                ImageView mapImageView = dialogViewMap.findViewById(R.id.imageViewMap);
+                mapImageView.setImageResource(R.drawable.mapa);
+                final AlertDialog alertDialogMap = builder.create();
+                alertDialogMap.show();
+                ImageView closeMap = dialogViewMap.findViewById(R.id.imageViewClose);
+                closeMap.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        alertDialogMap.dismiss();
+                    }
+                });
+            }
+        });
 
         return view;
     }
