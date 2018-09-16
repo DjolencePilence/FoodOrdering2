@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.example.djole.foodordering.R;
 import com.example.djole.foodordering.adapters.RecViewAdapterForDelivery;
 import com.example.djole.foodordering.adapters.RecycleViewAdapterRestaurants;
+import com.example.djole.foodordering.db.Database;
 
 /**
  * Created by Djole on 10-Sep-18.
@@ -33,10 +34,22 @@ public class ForDeliveryFragment extends Fragment {
         View view = inflater.inflate(R.layout.for_delivery_tab,container, false);
         recyclerView = view.findViewById(R.id.recycleViewForDelivery);
 
-        RecViewAdapterForDelivery recycleViewAdapter = new RecViewAdapterForDelivery(getContext(), recyclerView);
+        final RecViewAdapterForDelivery recycleViewAdapter = new RecViewAdapterForDelivery(getContext(), recyclerView);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(recycleViewAdapter);
+
+        final ImageView filter = view.findViewById(R.id.imageViewFilter);
+        filter.setVisibility(View.GONE);
+        filter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Database.getInstance().forDeliveryList.clear();
+                Database.getInstance().populateForDeliveryList();
+                recycleViewAdapter.notifyDataSetChanged();
+                filter.setVisibility(View.GONE);
+            }
+        });
 
         //setting SEARCH button listener
         Button searchRestBtn = view.findViewById(R.id.buttonSort);
@@ -80,6 +93,18 @@ public class ForDeliveryFragment extends Fragment {
                 closeImage.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        alertDialog.dismiss();
+                    }
+                });
+                final Button searchOrdBtn = dialogView.findViewById(R.id.buttonSearchOrders);
+                searchOrdBtn.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Database.getInstance().forDeliveryList.remove(0);
+                        Database.getInstance().forDeliveryList.remove(0);
+                        Database.getInstance().forDeliveryList.remove(0);
+                        recycleViewAdapter.notifyDataSetChanged();
+                        filter.setVisibility(View.VISIBLE);
                         alertDialog.dismiss();
                     }
                 });

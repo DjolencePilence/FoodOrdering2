@@ -66,7 +66,7 @@ public class Database {
         previousDeliveryList.add(previousDeliveryItem3);
     }
 
-    private static void populateForDeliveryList(){
+    public static void populateForDeliveryList(){
         ForDeliveryItem fdi1 = new ForDeliveryItem("Krilca","350.00 RSD", "Milan Marić", "16:35", R.drawable.reka_mapa,"2");
         ForDeliveryItem fdi2 = new ForDeliveryItem("Biftek","700.00 RSD", "Pera Perić", "17:50", R.drawable.omladinskih,"1");
         ForDeliveryItem fdi3 = new ForDeliveryItem("Palačinka","250", "Ivan Kotur", "22:00",R.drawable.patrisa,"1");
