@@ -10,6 +10,7 @@ import com.example.djole.foodordering.beans.Impression;
 import com.example.djole.foodordering.beans.OrderedItem;
 import com.example.djole.foodordering.beans.PreviousDeliveryItem;
 import com.example.djole.foodordering.beans.RestaurantBriefInfo;
+import com.example.djole.foodordering.beans.User;
 
 import java.util.ArrayList;
 
@@ -26,6 +27,7 @@ public class Database {
     public static ArrayList<Impression> impressionsList = new ArrayList<>();
     public static ArrayList<ForDeliveryItem> forDeliveryList = new ArrayList<>();
     public static ArrayList<PreviousDeliveryItem> previousDeliveryList = new ArrayList<>();
+    public static ArrayList<User> usersList = new ArrayList<>();
     public static boolean userRegistered = false;
     public static int userType = 0; //user = 0 purchasers, user = 1 delivery guys;
     public static int totalAmount = 0;
@@ -43,6 +45,15 @@ public class Database {
         setHardCodedomments();
         populateForDeliveryList();
         populatePreviousDeliveryList();
+        populateUsers();
+    }
+
+    private static void populateUsers(){
+        User user1 = new User("Milan", "Vukadinović","06611122233", "Omladinska 14","milan93", "milan123",0);
+        User user2 = new User("Mika", "Mikić","06611122233", "Omladinska 19","delivery", "delivery123",1);
+
+        usersList.add(user1);
+        usersList.add(user2);
     }
 
     private static void populatePreviousDeliveryList(){

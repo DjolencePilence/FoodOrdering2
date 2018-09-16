@@ -12,8 +12,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.djole.foodordering.beans.User;
 import com.example.djole.foodordering.db.Database;
 import com.example.djole.foodordering.delivery.ForDeliveryAndAllOrdersActivity;
+
+import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity {
     private Context context;
@@ -34,26 +37,38 @@ public class LoginActivity extends AppCompatActivity {
                 if(username.length() == 0 || password.length() == 0){
                     Toast.makeText(context, "Niste uneli sve podatke!",
                             Toast.LENGTH_LONG).show();
-                }else if(!"milan93".equals(username) && !"delivery".equals(username)) {
-                    Toast.makeText(context, "Pogresno korisnicko ime!",
-                            Toast.LENGTH_LONG).show();
-                }
-                else if(!"milan123".equals(password)){
-                    Toast.makeText(context, "Pogresna lozinka!",
-                            Toast.LENGTH_LONG).show();
-                }
-                else {
-                    Database.getInstance().userRegistered = true;
-                    if("delivery".equals(username)) Database.getInstance().userType = 1;
-                    if("milan93".equals(username)) Database.getInstance().userType = 0;
-                    Intent myIntent;
-                    if(Database.getInstance().userType == 0) {
-                        myIntent = new Intent(context, AllRestaurantsAndOrderingsActivity.class);
+                }else{
+                    ArrayList<User> users = Database.getInstance().usersList;
+                    boolean foundUsername = false, foundPassword = false;
+                    User foundUser = null;
+                    for(User u: users){
+                        if(u.getUsername().equals(username)){
+                            foundUsername = true;
+                            if(u.getPassword().equals(password)){
+                                foundPassword = true;
+                                foundUser = u;
+                            }
+                            break;
+                        }
+                    }
+                    if(!foundUsername){
+                        Toast.makeText(context, "Pogrešno korisničko ime!",
+                                Toast.LENGTH_LONG).show();
+                    } else if(!foundPassword){
+                        Toast.makeText(context, "Pogrešna lozinka!",
+                                Toast.LENGTH_LONG).show();
                     }
                     else{
-                        myIntent = new Intent(context, ForDeliveryAndAllOrdersActivity.class);
+                        Database.getInstance().userRegistered = true;
+                        Intent myIntent;
+                        if(foundUser.getUserType() == 0) {
+                            myIntent = new Intent(context, AllRestaurantsAndOrderingsActivity.class);
+                        }
+                        else{
+                            myIntent = new Intent(context, ForDeliveryAndAllOrdersActivity.class);
+                        }
+                        startActivity(myIntent);
                     }
-                    startActivity(myIntent);
                 }
             }
         });

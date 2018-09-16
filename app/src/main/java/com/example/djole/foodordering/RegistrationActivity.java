@@ -11,6 +11,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.djole.foodordering.beans.User;
+import com.example.djole.foodordering.db.Database;
+
 public class RegistrationActivity extends AppCompatActivity {
     private Context context;
     @Override
@@ -50,6 +53,13 @@ public class RegistrationActivity extends AppCompatActivity {
                     Toast.makeText(context, "Niste ispravno potvrdili lozinku!",
                             Toast.LENGTH_LONG).show();
                 }
+                User user = new User(name, surname, phone,address,username,password, 0);
+                Database.getInstance().usersList.add(user);
+                Toast.makeText(context, "Uspešno ste se registrovali", Toast.LENGTH_LONG).show();
+                Intent myIntent;
+                myIntent = new Intent(context, LoginActivity.class);
+                startActivity(myIntent);
+
             }
         });
 
