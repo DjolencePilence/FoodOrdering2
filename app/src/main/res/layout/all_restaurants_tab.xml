@@ -36,5 +36,20 @@
 
     </android.support.v7.widget.RecyclerView>
 
+    <ImageView
+        android:id="@+id/imageViewFilter"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toEndOf="@+id/buttonSearchRest"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@drawable/filter_24dp" />
+
 
 </android.support.constraint.ConstraintLayout>

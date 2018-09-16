@@ -13,7 +13,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="32dp"
         android:text="Naziv:"
-        android:textColor="@color/darkBlueColor"
+        android:textColor="@color/buttonColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
@@ -40,7 +40,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="16dp"
         android:text="Grad:"
-        android:textColor="@color/darkBlueColor"
+        android:textColor="@color/buttonColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,7 +54,7 @@
         android:layout_marginRight="8dp"
         android:layout_marginTop="16dp"
         android:text="Kuhinja:"
-        android:textColor="@color/darkBlueColor"
+        android:textColor="@color/buttonColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,22 +74,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView36" />
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="8dp"
-        android:layout_marginLeft="8dp"
-        android:layout_marginRight="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/barrier6"
-        app:layout_constraintTop_toBottomOf="@+id/textView40" />
-
     <Spinner
         android:id="@+id/spinnerCity"
         android:layout_width="150dp"
@@ -98,13 +82,13 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
+        android:entries="@array/cities_array"
+        android:prompt="@string/city_prompt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.29"
         app:layout_constraintStart_toEndOf="@+id/barrier6"
-        app:layout_constraintTop_toBottomOf="@+id/editText2"
-        android:entries="@array/cities_array"
-        android:prompt="@string/city_prompt"/>
+        app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
     <Spinner
         android:id="@+id/spinnerCuisine"
@@ -114,13 +98,13 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
+        android:entries="@array/cuisines_array"
+        android:prompt="@string/cuisine_prompt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toEndOf="@+id/barrier6"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerCity"
-        android:entries="@array/cuisines_array"
-        android:prompt="@string/cuisine_prompt"/>
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCity" />
 
     <android.support.constraint.Barrier
         android:id="@+id/barrier6"
@@ -220,7 +204,7 @@
         app:layout_constraintTop_toBottomOf="@+id/checkBox" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/buttonSearch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -278,5 +262,20 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/textView38"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView38" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="26dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.29"
+        app:layout_constraintStart_toEndOf="@+id/barrier6"
+        app:layout_constraintTop_toBottomOf="@+id/textView40"
+        android:entries="@array/restaurants_array" />
 
 </android.support.constraint.ConstraintLayout>

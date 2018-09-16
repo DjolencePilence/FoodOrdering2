@@ -12,9 +12,15 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.djole.foodordering.adapters.RecycleViewAdapterRestaurants;
+import com.example.djole.foodordering.beans.RestaurantBriefInfo;
+import com.example.djole.foodordering.db.Database;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * Created by Djole on 08-Sep-18.
@@ -31,10 +37,22 @@ public class AllRestaurantsFragment extends Fragment {
         View view = inflater.inflate(R.layout.all_restaurants_tab,container, false);
         recyclerView = view.findViewById(R.id.restaurantsRecyclerView);
 
-        RecycleViewAdapterRestaurants recycleViewAdapter = new RecycleViewAdapterRestaurants(getContext());
+        final RecycleViewAdapterRestaurants recycleViewAdapter = new RecycleViewAdapterRestaurants(getContext());
 
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerView.setAdapter(recycleViewAdapter);
+
+        final ImageView filterImage = view.findViewById(R.id.imageViewFilter);
+        filterImage.setVisibility(View.GONE);
+        filterImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Database.getInstance().restBriefInfoList.remove(0);
+                Database.getInstance().populateRestBriefInfo();
+                recycleViewAdapter.notifyDataSetChanged();
+                filterImage.setVisibility(View.GONE);
+            }
+        });
 
         //setting SEARCH button listener
         Button searchRestBtn = view.findViewById(R.id.buttonSearchRest);
@@ -78,6 +96,26 @@ public class AllRestaurantsFragment extends Fragment {
                 closeImage.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        alertDialog.dismiss();
+                    }
+                });
+                Button btnSearch = dialogView.findViewById(R.id.buttonSearch);
+                btnSearch.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Spinner chosenRestSpin = dialogView.findViewById(R.id.spinner);
+                        String chosenRestStr = chosenRestSpin.getSelectedItem().toString();
+                        if(!chosenRestStr.equals("Svi")) {
+                            ArrayList<RestaurantBriefInfo> restBriefInfoList = Database.getInstance().restBriefInfoList;
+                            Iterator<RestaurantBriefInfo> i = restBriefInfoList.iterator();
+                            while (i.hasNext()) {
+                                RestaurantBriefInfo s = i.next(); // must be called before you can call i.remove()
+                                if (!s.getRestName().equals(chosenRestStr))
+                                    i.remove();
+                            }
+                            recycleViewAdapter.notifyDataSetChanged();
+                            filterImage.setVisibility(View.VISIBLE);
+                        }
                         alertDialog.dismiss();
                     }
                 });

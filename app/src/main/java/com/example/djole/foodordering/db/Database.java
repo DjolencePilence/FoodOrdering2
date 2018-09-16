@@ -95,7 +95,7 @@ public class Database {
         }
     }
 
-    private static void populateRestBriefInfo(){
+    public static void populateRestBriefInfo(){
         RestaurantBriefInfo restInfo1 = new RestaurantBriefInfo("Bambara", "8.8","francuska", "12-23h", R.drawable.bambara);
         RestaurantBriefInfo restInfo2 = new RestaurantBriefInfo("Reka", "9.1","srpska","10-22h",R.drawable.reka);
         RestaurantBriefInfo restInfo3 = new RestaurantBriefInfo("Milagro", "7.4", "italijanska", "9-23h",R.drawable.milagro);
