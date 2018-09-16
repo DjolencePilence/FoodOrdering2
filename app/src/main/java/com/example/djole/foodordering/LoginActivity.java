@@ -47,6 +47,7 @@ public class LoginActivity extends AppCompatActivity {
                             if(u.getPassword().equals(password)){
                                 foundPassword = true;
                                 foundUser = u;
+                                Database.getInstance().currentUser = u;
                             }
                             break;
                         }

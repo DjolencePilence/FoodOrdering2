@@ -28,6 +28,7 @@ public class Database {
     public static ArrayList<ForDeliveryItem> forDeliveryList = new ArrayList<>();
     public static ArrayList<PreviousDeliveryItem> previousDeliveryList = new ArrayList<>();
     public static ArrayList<User> usersList = new ArrayList<>();
+    public static User currentUser;
     public static boolean userRegistered = false;
     public static int userType = 0; //user = 0 purchasers, user = 1 delivery guys;
     public static int totalAmount = 0;
